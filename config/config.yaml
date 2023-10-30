@@ -1,0 +1,11 @@
+DEBUG: false
+Manual_Goal: true
+
+# MCTS parameters
+c: 0.07 # parameter of PUCT
+reward_c: 0.1  # parameter of reward function, reward weight between angle and euclidian
+MAX_DEPTH: 10 # maximum depth of MCTS Tree 
+MAX_ITER: 10000000 # maximum backups of MCTS Tree
+MAX_TIME: 0.04 # MCTS process terminate within max time
+dt: 1.0 # time steps interval between nodes
+gamma: 1.0 # n-step reward decay

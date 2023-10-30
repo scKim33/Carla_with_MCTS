@@ -1,0 +1,10 @@
+<launch>
+ <!-- nodes -->
+ <node pkg="velodyne_height_map" type="heightmap_node" name="heightmap_node" output="screen"/>
+ <node pkg="rviz" type="rviz" name="rviz" args="-d $(find vanilla_mcts)/rviz/rviz.rviz"/>
+ <node pkg="vanilla_mcts" type="vanilla_mcts" name="vanilla_mcts" output="screen"/>
+
+ <!-- parameters -->
+ <rosparam command="load" file="$(find vanilla_mcts)/config/config.yaml" />
+
+</launch>
