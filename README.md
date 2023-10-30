@@ -6,7 +6,7 @@
 - roscore
 
 ## Code configuration
-![alt text](https://github.com/sckim33/Carla_with_MCTS/fig/1.jpg?raw=true)
+![alt text](https://github.com/sckim33/Carla_with_MCTS/fig/1.png?raw=true)
 
 ## Structure
 ```
