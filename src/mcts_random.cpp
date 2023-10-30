@@ -291,7 +291,7 @@ NODE MCTS::Move(NODE* node, double ds, double dv) { // give an action as input a
     }
 
     // Calculate wheel angle of the car
-    double wheel_angle = steering_wheelangle_ratio * new_s;
+    double wheel_angle = 1 / 2.0 * (steering_outerwheelangle_ratio + steering_innerwheelangle_ratio) * new_s;
 
     // Next point calculation with interval dt
     double dx = new_v * dt * cos(node->current_state.pos.th);

@@ -72,7 +72,8 @@ class MCTS
         // Parameters
         const double MAX_S = 540; // deg
         const double MAX_V = 5; // km/h
-        const double steering_wheelangle_ratio = 70 / 540.0; // one-to-one match between steering and corresponding wheel angle
+        const double steering_outerwheelangle_ratio = 70 / 540.0; // one-to-one match between steering and corresponding wheel angle
+        const double steering_innerwheelangle_ratio = 47.95 / 540.0;
         const double vehicle_length =  2.8325145696692897; // using wheel base of 2020 Benz
         double c = 1.4; // parameter of PUCT
         double reward_c = 1.0; // parameter of reward function, reward weight between angle and euclidian
