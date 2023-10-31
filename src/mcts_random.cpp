@@ -217,7 +217,7 @@ double MCTS::Evaluation(NODE* node) {
     double dist = sqrt(pow(x, 2) + pow(y, 2));
     double v;
 
-    v = 0.5 * ((1 - c_) * func(dist) + c_ * func(abs(3 * th))) + 0.4;
+    v = 0.5 * ((1 - reward_c) * rational_function(dist) + reward_c * rational_function(abs(3 * th))) + 0.4;
     // v = 0.5 * (1* func(dist)) + 0.4;
     // if(x < 0.0) {
     //     v += -0.4;
@@ -249,7 +249,6 @@ void MCTS::BackUp(NODE* node, double reward) {
         cout << "\n\n========== Backup ==========" << endl;
         cout << "node idx : " << node->node_idx << endl;
         cout << "is root node? : " << node->is_root << endl;
-        cout << "current node state : " << node->current_state << endl;
         cout << "q before backup : " << node->q << endl;
         cout << "current node visit count : " << node->n << endl;
     }
@@ -329,7 +328,7 @@ NODE* MCTS::print_child_info(NODE* node) {
 
     for(int i = 0; i < node->children.size(); i++) {
         cout.precision(2);
-        cout << "Node index: " << node->node_idx
+        cout << "Node index: " << node->children[i]->node_idx
         << ", dv : " << setw(2) << vel_cand[get<1>(node->children[i]->last_action_idx)] * MPS2KMPH << "[km/h]"
         << ", ds : " << setw(3) << steer_cand[get<0>(node->children[i]->last_action_idx)] * RAD2DEG << "[deg]";
         cout.precision(5);

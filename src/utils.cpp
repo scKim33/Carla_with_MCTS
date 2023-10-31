@@ -1,5 +1,9 @@
 #include "../include/utils.h"
 
+
+using namespace std;
+
+
 double rational_function(double x) {
     return 1 / (1.0 + x);
 }

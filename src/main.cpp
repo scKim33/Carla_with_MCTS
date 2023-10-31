@@ -9,7 +9,7 @@ using namespace std;
 
 // ROS Nodes
 ros::Publisher Pub_StartPose, Pub_GoalPose, Pub_CollisionCheck, Pub_MctsPath, Pub_Action, Pub_CarPose;
-ros::Subscriber Sub_GoalPosition, Sub_LocalizationData, Sub_ObstaclePoses, Sub_Manual_Goal;
+ros::Subscriber Sub_GoalPosition, Sub_LocalizationData, Sub_Manual_Goal;
 geometry_msgs::PoseStamped poseStamped;
 geometry_msgs::PoseArray collision_edge;
 std_msgs::Header m_header;
@@ -252,7 +252,6 @@ void Thread_ROS() {
 
     Sub_GoalPosition = nh_.subscribe("/parking_cands", 1, &Callback_Goal);
     Sub_LocalizationData = nh_.subscribe("/LocalizationData", 1, &Callback_LocalizationData);
-    Sub_Restart = nh_.subscribe("restart_flag", 1, &Callback_Restart);
     Sub_Manual_Goal = nh_.subscribe("/move_base_simple/goal", 1, &Callback_ManualGoal);
     Pub_CarPose = nh_.advertise<geometry_msgs::PoseStamped>("PoseCar", 1);
     Pub_StartPose = nh_.advertise<geometry_msgs::PoseStamped>("PoseStart", 1);
@@ -306,7 +305,7 @@ void Thread_MCTS() {
             msg.data.clear();
             msg.data.push_back(0.0);
             msg.data.push_back(0.0); // deg, km/h
-            PubAction.publish(msg);
+            Pub_Action.publish(msg);
             break;
         }
 
@@ -327,7 +326,7 @@ void Thread_MCTS() {
         msg.data.clear();
         msg.data.push_back(state.s * RAD2DEG);
         msg.data.push_back(state.v * MPS2KMPH); // deg, km/h
-        PubAction.publish(msg);
+        Pub_Action.publish(msg);
         Pub_MctsPath.publish(mcts_path);
 
         ros::spinOnce();

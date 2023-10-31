@@ -32,7 +32,7 @@ include_directories(
   ${Eigen_INCLUDE_DIRS}
 )
 
-add_executable(vanilla_mcts src/mcts_random.cpp src/main.cpp src/rviz_utils.cpp)
+add_executable(vanilla_mcts src/mcts_random.cpp src/main.cpp src/utils.cpp)
 
 target_link_libraries(vanilla_mcts
                       ${catkin_LIBRARIES}

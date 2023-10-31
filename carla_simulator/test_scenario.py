@@ -97,8 +97,6 @@ from PIL import ImageDraw
 from PIL import Image as PILIMAGE
 import cv2
 import cv_bridge
-from test_model_conti import *
-from test_model_discrete import *
 
 # ROS
 import rospy
