@@ -3789,7 +3789,7 @@ def main():
     argparser.add_argument(
         '-rl',
         type=int,
-        default=1,
+        default=0,
         help="enabling reinforcement training mode"
         )
     

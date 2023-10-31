@@ -2,7 +2,7 @@ DEBUG: false
 Manual_Goal: true
 
 # MCTS parameters
-c: 0.07 # parameter of PUCT
+c: 0.14 # parameter of PUCT
 reward_c: 0.1  # parameter of reward function, reward weight between angle and euclidian
 MAX_DEPTH: 10 # maximum depth of MCTS Tree 
 MAX_ITER: 10000000 # maximum backups of MCTS Tree
