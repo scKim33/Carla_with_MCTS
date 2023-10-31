@@ -229,7 +229,7 @@ double MCTS::Evaluation(NODE* node) {
     //     node->current_state.v = 0;
     //     node->is_terminal = true;
     // } 
-    if(dist < 0.1 && th < 0.1 * M_PI) {
+    if(abs(y) < 0.1 && dist < 0.5 && abs(th) < 10 * DEG2RAD) {
         v += 0.1;
         node->current_state.v = 0;
         node->is_terminal = true;
